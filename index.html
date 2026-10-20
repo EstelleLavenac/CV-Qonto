@@ -100,29 +100,40 @@ header.nav{position:sticky}
 /* hero */
 .hero{position:relative;background:var(--black);color:var(--white);min-height:calc(100vh - 140px);min-height:calc(100svh - 140px);display:flex;align-items:flex-end;overflow:hidden}
 .hero-visual{position:absolute;inset:0;overflow:hidden}
-.hero-visual .desk{
-  position:absolute;inset:0;
-  background:
-    radial-gradient(60% 70% at 70% 35%, #4a4038 0%, #241f1b 45%, #0b0a09 100%);
+.hero-visual .desk{position:absolute;inset:0;background:radial-gradient(55% 65% at 72% 42%,#2a2a2a 0%,#111 45%,#050505 100%)}
+.hero-visual .glow{position:absolute;width:520px;height:520px;right:8%;top:6%;border-radius:50%;background:var(--ai);filter:blur(110px);opacity:.28}
+.hcard-wrap{position:absolute;right:7%;top:50%;width:min(480px,40vw);aspect-ratio:1.586;transform:translateY(-58%);perspective:1400px}
+.hcard{position:relative;width:100%;height:100%;transform-style:preserve-3d;will-change:transform;
+  transform:rotateX(14deg) rotateY(-24deg) rotateZ(-8deg)}
+.hcard .face{position:absolute;inset:0;border-radius:22px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;
+  background:linear-gradient(145deg,#2e2e2e 0%,#121212 55%,#050505 100%);
+  box-shadow:0 50px 100px -30px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.14),inset 0 0 0 1px rgba(255,255,255,.06)}
+.hcard .front{padding:7% 8%;display:flex;flex-direction:column;justify-content:space-between;color:#fff}
+.hcard .shine{position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.16) 50%,transparent 60%);transform:translateX(var(--sh,-30%));pointer-events:none}
+.hcard .row1{display:flex;justify-content:space-between;align-items:flex-start}
+.hcard .brand{font-size:clamp(20px,2.4vw,30px);font-weight:600;letter-spacing:-.04em}
+.hcard .tag{font-size:clamp(9px,.85vw,12px);letter-spacing:.12em;text-transform:uppercase;color:#a0a0a0;text-align:right}
+.hcard .chip2{width:15%;aspect-ratio:1.35;border-radius:7px;background:linear-gradient(135deg,#e2d3a6,#a08850);position:relative}
+.hcard .chip2::before{content:"";position:absolute;inset:30% 0;border-top:1px solid rgba(0,0,0,.25);border-bottom:1px solid rgba(0,0,0,.25)}
+.hcard .nfc{position:absolute;left:26%;top:43%;width:7%;opacity:.5}
+.hcard .num{font-size:clamp(14px,1.7vw,22px);letter-spacing:.16em;font-variant-numeric:tabular-nums;color:#f0f0f0}
+.hcard .row3{display:flex;justify-content:space-between;align-items:flex-end;font-size:clamp(8px,.7vw,10px);letter-spacing:.1em;text-transform:uppercase;color:#9a9a9a}
+.hcard .row3 b{display:block;font-size:clamp(11px,1vw,14px);color:#fff;letter-spacing:.06em;font-weight:600;margin-top:2px}
+.hcard .logo-c{display:flex}.hcard .logo-c i{width:clamp(22px,2.4vw,34px);aspect-ratio:1;border-radius:50%;background:#e8e8e8;opacity:.9}
+.hcard .logo-c i+i{margin-left:-28%;background:var(--ai)}
+.hcard .back{transform:rotateY(180deg);color:#fff;display:flex;flex-direction:column}
+.hcard .strip{height:20%;background:#000;margin-top:9%}
+.hcard .sig{display:flex;align-items:center;gap:4%;margin:6% 8% 0}
+.hcard .sig span{flex:1;height:clamp(28px,3vw,40px);border-radius:4px;background:repeating-linear-gradient(135deg,#f3f3f3 0 6px,#e4e4e4 6px 12px);color:#111;font-style:italic;font-size:clamp(12px,1.3vw,17px);display:flex;align-items:center;padding:0 4%;font-family:"Brush Script MT","Segoe Script",cursive}
+.hcard .sig em{font-style:normal;background:#fff;color:#111;font-weight:600;font-size:clamp(11px,1.1vw,14px);padding:6px 10px;border-radius:4px;letter-spacing:.1em}
+.hcard .bk-txt{margin:auto 8% 7%;font-size:clamp(9px,.8vw,11px);line-height:1.5;color:#9a9a9a}
+.hcard .bk-txt b{color:#fff;font-weight:600}
+@media (max-width:900px){
+  .hcard-wrap{left:50%;right:auto;top:56px;width:min(320px,76vw);transform:translateX(-50%)}
+  .hero{min-height:0}
+  section.hero > .c{padding-top:clamp(290px,80vw,330px);padding-bottom:56px}
+  .hero-visual .glow{right:auto;left:10%;top:40px;width:320px;height:320px}
 }
-.screen{
-  position:absolute;right:6%;top:12%;width:min(620px,58vw);aspect-ratio:16/10;border-radius:18px;
-  background:#f2f2f2;transform:rotate(-8deg) skewX(4deg);box-shadow:0 60px 120px -30px rgba(0,0,0,.8);
-  padding:4%;display:grid;grid-template-columns:1.2fr 1fr;gap:4%;filter:blur(1.2px) saturate(.9);
-}
-.screen .blk{border-radius:10px;background:#dcdcdc}
-.screen .blk.a{background:linear-gradient(135deg,#1a1a1a,#3d3d3d);grid-row:span 2}
-.screen .blk.b{background:var(--ai)}
-.screen .blk.c{background:#cfcfcf}
-.phone{
-  position:absolute;right:38%;bottom:-6%;width:min(220px,22vw);aspect-ratio:9/19;border-radius:34px;background:#111;
-  border:8px solid #1d1d1d;transform:rotate(-14deg);box-shadow:0 40px 80px -20px rgba(0,0,0,.9);filter:blur(.8px);
-  padding:22px 14px;display:flex;flex-direction:column;gap:10px;
-}
-.phone i{display:block;height:12px;border-radius:6px;background:#2c2c2c}
-.phone i.w{width:60%}.phone i.t{height:70px;border-radius:12px;background:#262626}
-.hero-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.88) 0%,rgba(5,5,5,.55) 50%,rgba(5,5,5,.2) 100%),linear-gradient(0deg,rgba(5,5,5,.9) 0%,transparent 45%)}
-@media (max-width:900px){.screen{width:90vw;right:-20%;top:6%}.phone{display:none}}
 .hero .c{position:relative;z-index:2;width:100%;padding-top:128px;padding-bottom:72px}
 .rating{display:flex;align-items:center;gap:8px;font-size:14px;line-height:20px;color:var(--g300);margin-bottom:24px}
 .rating .star{color:#00b67a}
@@ -405,8 +416,25 @@ footer{padding:64px 0 40px;border-top:1px solid var(--g100)}
 <section class="hero" id="top">
   <div class="hero-visual" aria-hidden="true">
     <div class="desk"></div>
-    <div class="screen"><div class="blk a"></div><div class="blk b"></div><div class="blk c"></div></div>
-    <div class="phone"><i class="w"></i><i class="t"></i><i></i><i class="w"></i><i class="t"></i><i></i></div>
+    <div class="glow"></div>
+    <div class="hcard-wrap">
+      <div class="hcard" id="hcard">
+        <div class="face front">
+          <div class="row1"><span class="brand">estelle.</span><span class="tag">Designer senior<br>Full remote</span></div>
+          <div class="chip2"></div>
+          <svg class="nfc" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M8 7a7 7 0 0 1 0 10M12 4a11 11 0 0 1 0 16M4 10a3 3 0 0 1 0 4"/></svg>
+          <div class="num">8339 · PRNT · WEB · MOTN</div>
+          <div class="row3"><div>Titulaire<b>ESTELLE LAVENAC</b></div><div>Valable<b>DÈS MAINTENANT</b></div><div class="logo-c"><i></i><i></i></div></div>
+          <div class="shine"></div>
+        </div>
+        <div class="face back">
+          <div class="strip"></div>
+          <div class="sig"><span>Estelle Lavenac</span><em>•••</em></div>
+          <div class="bk-txt">Code secret ? <b>Jouez dans le bandeau</b> pour le retrouver.<br>Carte émise pour Qonto · Print · Web · Motion · Vidéo</div>
+          <div class="shine"></div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="c">
     <div class="rating rv"><b style="color:#fff">9 ans</b> d'expérience <span class="star">★</span> Designer senior</div>
@@ -443,43 +471,43 @@ footer{padding:64px 0 40px;border-top:1px solid var(--g100)}
     </div>
     <div class="track" id="track">
       <a class="proj" href="https://estellelavenac.github.io/Estelle-Lavenac/projects/marc.html" target="_blank" rel="noopener">
-        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/marc-01-cover.jpg" alt="Projet Marc ! — Identité · Packaging · Web" loading="lazy">
+        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/marc-01-cover.jpg" alt="Projet Marc ! — Identité · Packaging · Web" loading="eager" decoding="async">
         <div class="in"><span class="lbl">Identité · Packaging · Web</span><h3 class="h3">Marc !</h3><p>Les six sachets de café, un par humeur.</p><span class="link-arrow">Voir le projet →</span></div>
       </a>
       <a class="proj" href="https://estellelavenac.github.io/Estelle-Lavenac/projects/peau-cible.html" target="_blank" rel="noopener">
-        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/peau-cible-01-cover.jpg" alt="Projet Peau Cible — Identité · Packaging · Web" loading="lazy">
+        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/peau-cible-01-cover.jpg" alt="Projet Peau Cible — Identité · Packaging · Web" loading="eager" decoding="async">
         <div class="in"><span class="lbl">Identité · Packaging · Web</span><h3 class="h3">Peau Cible</h3><p>Du flacon au panier : charte, packaging, site et newsletter.</p><span class="link-arrow">Voir le projet →</span></div>
       </a>
       <a class="proj" href="https://estellelavenac.github.io/Estelle-Lavenac/projects/mon-petit-vert.html" target="_blank" rel="noopener">
-        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/mon-petit-vert-02-cover.jpg" alt="Projet Mon petit vert — Print · Identité" loading="lazy">
+        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/mon-petit-vert-02-cover.jpg" alt="Projet Mon petit vert — Print · Identité" loading="eager" decoding="async">
         <div class="in"><span class="lbl">Print · Identité</span><h3 class="h3">Mon petit vert</h3><p>Catalogue jardinerie.</p><span class="link-arrow">Voir le projet →</span></div>
       </a>
       <a class="proj" href="https://estellelavenac.github.io/Estelle-Lavenac/projects/creagency.html" target="_blank" rel="noopener">
-        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/creagency-01.png" alt="Projet Créagency ! — UI/UX · Web & app" loading="lazy">
+        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/creagency-01.png" alt="Projet Créagency ! — UI/UX · Web & app" loading="eager" decoding="async">
         <div class="in"><span class="lbl">UI/UX · Web & app</span><h3 class="h3">Créagency !</h3><p>Appli de recrutement créatif.</p><span class="link-arrow">Voir le projet →</span></div>
       </a>
       <a class="proj" href="https://estellelavenac.github.io/Estelle-Lavenac/projects/good-juice.html" target="_blank" rel="noopener">
-        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/good-juice-01.png" alt="Projet Good Juice — Print · Identité" loading="lazy">
+        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/good-juice-01.png" alt="Projet Good Juice — Print · Identité" loading="eager" decoding="async">
         <div class="in"><span class="lbl">Print · Identité</span><h3 class="h3">Good Juice</h3><p>Print & identité.</p><span class="link-arrow">Voir le projet →</span></div>
       </a>
       <a class="proj" href="https://estellelavenac.github.io/Estelle-Lavenac/projects/interkab-le-pack.html" target="_blank" rel="noopener">
-        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/interkab-le-pack-01.webp" alt="Projet Interkab — Le Pack — Motion" loading="lazy">
+        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/interkab-le-pack-01.webp" alt="Projet Interkab — Le Pack — Motion" loading="eager" decoding="async">
         <div class="in"><span class="lbl">Motion</span><h3 class="h3">Interkab — Le Pack</h3><p>Le Pack, motion design.</p><span class="link-arrow">Voir le projet →</span></div>
       </a>
       <a class="proj" href="https://estellelavenac.github.io/Estelle-Lavenac/projects/evoliz-landing.html" target="_blank" rel="noopener">
-        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/evoliz-landing-01.png" alt="Projet Evoliz — Refonte landing page — Web" loading="lazy">
+        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/evoliz-landing-01.png" alt="Projet Evoliz — Refonte landing page — Web" loading="eager" decoding="async">
         <div class="in"><span class="lbl">Web</span><h3 class="h3">Evoliz — Refonte landing page</h3><p>Refonte landing page.</p><span class="link-arrow">Voir le projet →</span></div>
       </a>
       <a class="proj" href="https://estellelavenac.github.io/Estelle-Lavenac/projects/evoliz-motion.html" target="_blank" rel="noopener">
-        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/evoliz-motion-01.png" alt="Projet Evoliz — Motion — Motion" loading="lazy">
+        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/evoliz-motion-01.png" alt="Projet Evoliz — Motion — Motion" loading="eager" decoding="async">
         <div class="in"><span class="lbl">Motion</span><h3 class="h3">Evoliz — Motion</h3><p>Motion design.</p><span class="link-arrow">Voir le projet →</span></div>
       </a>
       <a class="proj" href="https://estellelavenac.github.io/Estelle-Lavenac/projects/diverses-animations.html" target="_blank" rel="noopener">
-        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/diverses-animations-01.jpg" alt="Projet Diverses animations — Motion" loading="lazy">
+        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/diverses-animations-01.jpg" alt="Projet Diverses animations — Motion" loading="eager" decoding="async">
         <div class="in"><span class="lbl">Motion</span><h3 class="h3">Diverses animations</h3><p>GIFs animés.</p><span class="link-arrow">Voir le projet →</span></div>
       </a>
       <a class="proj" href="https://estellelavenac.github.io/Estelle-Lavenac/projects/la-boite-immo.html" target="_blank" rel="noopener">
-        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/la-boite-immo-03-thumb.png" alt="Projet La boîte immo — Print · Infographie" loading="lazy">
+        <img class="bg" src="https://estellelavenac.github.io/Estelle-Lavenac/book-assets/la-boite-immo-03-thumb.png" alt="Projet La boîte immo — Print · Infographie" loading="eager" decoding="async">
         <div class="in"><span class="lbl">Print · Infographie</span><h3 class="h3">La boîte immo</h3><p>Infographie.</p><span class="link-arrow">Voir le projet →</span></div>
       </a>
     </div>
@@ -719,6 +747,27 @@ bg.onclick=()=>setM(!mn.classList.contains('on'));
 mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setM(false)));
 addEventListener('keydown',e=>{if(e.key==='Escape')setM(false)});
 
+
+
+// carte du hero : animation au scroll (rotation, retournement, reflet)
+(function(){
+  const card=document.getElementById('hcard'),hero=document.getElementById('top');
+  if(!card||!hero)return;
+  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const lerp=(a,b,t)=>a+(b-a)*t, ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+  let ticking=false,t0=performance.now();
+  function frame(now){
+    const h=hero.offsetHeight||1;
+    const p=Math.min(Math.max(window.scrollY/(h*.7),0),1), e=ease(p);
+    const fl=reduce?0:Math.sin((now-t0)/1400)*6*(1-p);         // flottement au repos
+    const rx=lerp(14,6,e), ry=lerp(-24,180,e), rz=lerp(-8,4,e), sc=lerp(1,.88,e), ty=lerp(0,innerWidth<900?40:150,e)+fl;
+    card.style.transform=`translateY(${ty}px) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg) scale(${sc})`;
+    card.style.setProperty('--sh',(lerp(-30,40,p))+'%');
+    card.querySelectorAll('.shine').forEach(x=>x.style.setProperty('--sh',lerp(-30,40,p)+'%'));
+  }
+  if(reduce){frame(performance.now());return}
+  (function loop(now){ if(window.scrollY<hero.offsetHeight*1.2) frame(now); requestAnimationFrame(loop)})(performance.now());
+})();
 
 // mini-jeu : retrouver le code de la carte
 (function(){
